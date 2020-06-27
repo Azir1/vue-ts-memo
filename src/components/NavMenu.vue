@@ -47,7 +47,7 @@ export default class NavMenu extends Vue {
   activeIndex = "1";
   activeIndex2 = "1";
   // 点击展示不同的分类
-  handleSelect(key, keyPath) {
+  handleSelect(key: string, keyPath: string): void {
     console.log(key, keyPath);
     this.$store.commit('showList',key)
   }
@@ -56,7 +56,7 @@ export default class NavMenu extends Vue {
     this.$store.state.transMemo = new ItemData("-1", 0);
   }
   // 计算展示各分类的数量
-  doFilter(cid): number {
+  doFilter(cid: number): number {
     if (cid == -1) {
       return this.$store.state.aHelper.memoList.length;
     } else if (cid == 0) {
@@ -68,9 +68,9 @@ export default class NavMenu extends Vue {
     }
     return 0;
   }
-  count(cid): number {
+  count(cid: number): number {
     let i = 0;
-    this.$store.state.aHelper.memoList.forEach(v => {
+    this.$store.state.aHelper.memoList.forEach((v: any) => {
       if (cid == v.cateId) {
         i++;
       }
